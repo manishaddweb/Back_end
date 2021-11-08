@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     
 </head>
-<body style="background-color: pink;">
+<body>
     <form method="post">
     <div class="container mt-5 pt-2 pb-3" style="width:40%;border: black solid 2px;">
-	<h2 class="p-2 mb-3" style="border-bottom:5px solid green; width: 25%;">Log in</h2>
+	<h2 class="p-2 mb-3" style="border-bottom:5px solid blue; width: 25%;">Log in</h2>
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
     <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
@@ -25,13 +25,13 @@
   </div>
   
   <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label"><font style="color:red; border:none; font-size:20px;">If not Register ?</font><a href="register.php" style="text-decoration:none;">Click Here</a></label>
+    <label for="exampleInputEmail1" class="form-label"><font style="color:red; border:none; font-size:20px;">If not Register ?</font><a href="register.php" style="text-decoration:none;">Register Here</a></label>
     <div id="emailHelp" class="form-text"></div>
   </div>
   
   
-  <input type="submit" class="btn btn-success" name="insert" value="Submit">
-
+  <center><input type="submit" class="btn btn-success" name="insert" value="Submit">
+  </center>
 </form>
 </div>
 
@@ -55,7 +55,7 @@ if(isset($_POST['insert']))
         session_start();
         $_SESSION['email']=$email;
         header("Location:index.php");
-        echo "welcome";
+        //echo "welcome";
     }
     else
     {

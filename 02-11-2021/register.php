@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body style="background-color: pink;">
+<body>
  
 
 <!-- Register form starts -->
@@ -37,13 +37,10 @@
         <input type="password" class="form-control" id="exampleInputPassword1" required>
       </div>
       
-     <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label"><font style="color:red; border:none; font-size:20px;">If Register ?</font><a href="login.php" style="text-decoration:none;">Click Here</a></label>
-        <div id="emailHelp" class="form-text"></div>
-      </div>
-      
+     
+      <center>
       <input type="submit" class="btn btn-success" name="insert" value="Submit">
-    
+      </center>
     </form>
     </div>
 
@@ -53,7 +50,7 @@
 
 <?php
 // session_start();
-include "con.php";
+
 if(isset($_POST['insert']))
 {
     $fname=$_POST['fname'];
@@ -66,5 +63,9 @@ if(isset($_POST['insert']))
     if(!$query)
     {
         echo "Insertion Failed...!!";
+    }
+    else
+    {
+      header("Location:login.php");
     }
 }
