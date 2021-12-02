@@ -47,7 +47,7 @@
                             </div>
                             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 d-none d-sm-block">
                                 <div class="hero__img" data-animation="bounceIn" data-delay=".4s">
-                                    <img src="assets/img/hero/watch.png" alt="" class=" heartbeat">
+                                    <img src="images/clothes/women.png" alt="" class=" heartbeat">
                                 </div>
                             </div>
                         </div>
@@ -69,7 +69,7 @@
                             </div>
                             <div class="col-xl-3 col-lg-3 col-md-4 col-sm-4 d-none d-sm-block">
                                 <div class="hero__img" data-animation="bounceIn" data-delay=".4s">
-                                    <img src="assets/img/hero/watch.png" alt="" class=" heartbeat">
+                                    <img src="images/clothes/men4.jpg" alt="" height=500 width=300 class=" heartbeat">
                                 </div>
                             </div>
                         </div>
@@ -85,44 +85,80 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="section-tittle mb-70">
-                            <h2>New Arrivals</h2>
+                            <h2 align=center>Categories</h2>
+                            <hr color=red width=18% style="height:5px;">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-new-pro mb-30 text-center">
-                            <div class="product-img">
-                                <img src="assets/img/gallery/new_product1.png" alt="">
-                            </div>
+                            <div class="product-img" style="border:2px solid black;">
+                            <?php
+                                include("conn.php");
+                                $sql="select * from category where cat_id=5";
+                                $query=mysqli_query($con,$sql);
+                                while($row=mysqli_fetch_array($query))
+                                {
+                                    echo "<img height=455 src='upload/".$row[2]."' >"; 
+                                  
+                               ?>
+                                
+                            </div>  
                             <div class="product-caption">
-                                <h3><a href="product_details.php">Thermo Ball Etip Gloves</a></h3>
-                                <span>$ 45,743</span>
+                                <h3><a href="view_product.php"><?php echo $row[1]; ?></a></h3>
                             </div>
                         </div>
                     </div>
+                   <?php
+                        }
+                   ?>
+                   
+                   <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-new-pro mb-30 text-center">
+                            <div class="product-img" style="border:2px solid black;">
+                            <?php
+                                include("conn.php");
+                                $sql="select * from category where cat_id=6";
+                                $query=mysqli_query($con,$sql);
+                                while($row=mysqli_fetch_array($query))
+                                {
+                                    echo "<img src='upload/".$row[2]."' height=455 >"; 
+                                  
+                               ?>
+                               
+                            </div>  
+                            <div class="product-caption">
+                                <h3><a href="view_product.php?p_id=<?php echo $row[0];?>"><?php echo $row[1]; ?></a></h3>
+                            </div>
+                        </div>
+                    </div>
+                   <?php
+                        }
+                   ?>
+
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-new-pro mb-30 text-center">
-                            <div class="product-img">
-                                <img src="assets/img/gallery/new_product2.png" alt="">
-                            </div>
+                            <div class="product-img" style="border:2px solid black;">
+                            <?php
+                                include("conn.php");
+                                $sql="select * from category where cat_id=7";
+                                $query=mysqli_query($con,$sql);
+                                while($row=mysqli_fetch_array($query))
+                                {
+                                    echo "<img src='upload/".$row[2]."' height=455 >"; 
+                                  
+                               ?>
+                                
+                            </div>  
                             <div class="product-caption">
-                                <h3><a href="product_details.php">Thermo Ball Etip Gloves</a></h3>
-                                <span>$ 45,743</span>
+                                <h3><a href="view_product.php?p_id=<?php echo $row[0];?>"><?php echo $row[1]; ?></a></h3>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-new-pro mb-30 text-center">
-                            <div class="product-img">
-                                <img src="assets/img/gallery/new_product3.png" alt="">
-                            </div>
-                            <div class="product-caption">
-                                <h3><a href="product_details.php">Thermo Ball Etip Gloves</a></h3>
-                                <span>$ 45,743</span>
-                            </div>
-                        </div>
-                    </div>
+                   <?php
+                        }
+                   ?>
                 </div>
             </div>
         </section>
@@ -176,105 +212,189 @@
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-popular-items mb-50 text-center">
                             <div class="popular-img">
-                                <img src="assets/img/gallery/popular1.png" alt="">
+							 <?php
+                                include("conn.php");
+                                $sql="select * from clothes where p_id=7";
+                                $query=mysqli_query($con,$sql);
+                                while($row=mysqli_fetch_array($query))
+                                {
+                                    echo "<img src='upload/".$row[5]."' height=380 >"; 
+                                  
+                               ?>
+                                
                                 <div class="img-cap">
-                                    <span>Add to cart</span>
+                                    <span><a href="#">Add to cart</a></span>
                                 </div>
                                 <div class="favorit-items">
                                     <span class="flaticon-heart"></span>
                                 </div>
                             </div>
                             <div class="popular-caption">
-                                <h3><a href="product_details.php">Thermo Ball Etip Gloves</a></h3>
-                                <span>$ 45,743</span>
+                                <h3><a href="product_details.php"><?php echo $row[2]; ?></a></h3>
+								
+                                <span><?php echo "Rs. ".$row[4]; ?></span>
+								<?php
+								}
+								?>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                    
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-popular-items mb-50 text-center">
                             <div class="popular-img">
-                                <img src="assets/img/gallery/popular2.png" alt="">
+							 <?php
+                                include("conn.php");
+                                $sql="select * from clothes where p_id=9";
+                                $query=mysqli_query($con,$sql);
+                                while($row=mysqli_fetch_array($query))
+                                {
+                                    echo "<img src='upload/".$row[5]."' height=380 >"; 
+                                  
+                               ?>
+                                
                                 <div class="img-cap">
-                                    <span>Add to cart</span>
+                                    <span><a href="#">Add to cart</a></span>
                                 </div>
                                 <div class="favorit-items">
                                     <span class="flaticon-heart"></span>
                                 </div>
                             </div>
                             <div class="popular-caption">
-                                <h3><a href="product_details.php">Thermo Ball Etip Gloves</a></h3>
-                                <span>$ 45,743</span>
+                                <h3><a href="product_details.php"><?php echo $row[2]; ?></a></h3>
+								
+                                <span><?php echo "Rs. ".$row[4]; ?></span>
+								<?php
+								}
+								?>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+					
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-popular-items mb-50 text-center">
                             <div class="popular-img">
-                                <img src="assets/img/gallery/popular3.png" alt="">
+							 <?php
+                                include("conn.php");
+                                $sql="select * from clothes where p_id=10";
+                                $query=mysqli_query($con,$sql);
+                                while($row=mysqli_fetch_array($query))
+                                {
+                                    echo "<img src='upload/".$row[5]."' height=380 >"; 
+                                  
+                               ?>
+                                
                                 <div class="img-cap">
-                                    <span>Add to cart</span>
+                                    <span><a href="#">Add to cart</a></span>
                                 </div>
                                 <div class="favorit-items">
                                     <span class="flaticon-heart"></span>
                                 </div>
                             </div>
                             <div class="popular-caption">
-                                <h3><a href="product_details.php">Thermo Ball Etip Gloves</a></h3>
-                                <span>$ 45,743</span>
+                                <h3><a href="product_details.php"><?php echo $row[2]; ?></a></h3>
+								
+                                <span><?php echo "Rs. ".$row[4]; ?></span>
+								<?php
+								}
+								?>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+					
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-popular-items mb-50 text-center">
                             <div class="popular-img">
-                                <img src="assets/img/gallery/popular4.png" alt="">
+							 <?php
+                                include("conn.php");
+                                $sql="select * from clothes where p_id=11";
+                                $query=mysqli_query($con,$sql);
+                                while($row=mysqli_fetch_array($query))
+                                {
+                                    echo "<img src='upload/".$row[5]."' height=380 >"; 
+                                  
+                               ?>
+                                
                                 <div class="img-cap">
-                                    <span>Add to cart</span>
+                                    <span><a href="#">Add to cart</a></span>
                                 </div>
                                 <div class="favorit-items">
                                     <span class="flaticon-heart"></span>
                                 </div>
                             </div>
                             <div class="popular-caption">
-                                <h3><a href="product_details.php">Thermo Ball Etip Gloves</a></h3>
-                                <span>$ 45,743</span>
+                                <h3><a href="product_details.php"><?php echo $row[2]; ?></a></h3>
+								
+                                <span><?php echo "Rs. ".$row[4]; ?></span>
+								<?php
+								}
+								?>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+					
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-popular-items mb-50 text-center">
                             <div class="popular-img">
-                                <img src="assets/img/gallery/popular5.png" alt="">
+							 <?php
+                                include("conn.php");
+                                $sql="select * from furniture where p_id=8";
+                                $query=mysqli_query($con,$sql);
+                                while($row=mysqli_fetch_array($query))
+                                {
+                                    echo "<img src='upload/".$row[5]."' height=380 >"; 
+                                  
+                               ?>
+                                
                                 <div class="img-cap">
-                                    <span>Add to cart</span>
+                                    <span><a href="#">Add to cart</a></span>
                                 </div>
                                 <div class="favorit-items">
                                     <span class="flaticon-heart"></span>
                                 </div>
                             </div>
                             <div class="popular-caption">
-                                <h3><a href="product_details.php">Thermo Ball Etip Gloves</a></h3>
-                                <span>$ 45,743</span>
+                                <h3><a href="product_details.php"><?php echo $row[2]; ?></a></h3>
+								
+                                <span><?php echo "Rs. ".$row[4]; ?></span>
+								<?php
+								}
+								?>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+					
+					<div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
                         <div class="single-popular-items mb-50 text-center">
                             <div class="popular-img">
-                                <img src="assets/img/gallery/popular6.png" alt="">
+							 <?php
+                                include("conn.php");
+                                $sql="select * from furniture where p_id=10";
+                                $query=mysqli_query($con,$sql);
+                                while($row=mysqli_fetch_array($query))
+                                {
+                                    echo "<img src='upload/".$row[5]."' height=380 >"; 
+                                  
+                               ?>
+                                
                                 <div class="img-cap">
-                                    <span>Add to cart</span>
+                                    <span><a href="#">Add to cart</a></span>
                                 </div>
                                 <div class="favorit-items">
                                     <span class="flaticon-heart"></span>
                                 </div>
                             </div>
                             <div class="popular-caption">
-                                <h3><a href="product_details.php">Thermo Ball Etip Gloves</a></h3>
-                                <span>$ 45,743</span>
+                                <h3><a href="product_details.php"><?php echo $row[2]; ?></a></h3>
+								
+                                <span><?php echo "Rs. ".$row[4]; ?></span>
+								<?php
+								}
+								?>
                             </div>
                         </div>
                     </div>
+					
                 </div>
                 <!-- Button -->
                 <div class="row justify-content-center">

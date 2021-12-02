@@ -56,7 +56,7 @@
    $img_name=$_FILES["cat_image"]["name"];
    $img_tmpname=$_FILES["cat_image"]["tmp_name"];
    
-   $image = "images/" . $img_name;
+   $image = "../upload/" . $img_name;
    
     $sql="insert into category(cat_name,cat_img) values('$name','$image')";
     move_uploaded_file($img_tmpname, $image); 

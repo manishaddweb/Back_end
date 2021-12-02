@@ -83,6 +83,7 @@
                                 <li>
                                     <div class="nav-search search-switch">
                                         <span class="flaticon-search"></span>
+									<!--	<input type="text" name="search" style="border-collapse:collapse;background-color:rgb(214, 212, 206);"> -->
                                     </div>
                                 </li>
                                 <li> <a href="login.php"><span class="flaticon-user"></span></a></li>

@@ -51,17 +51,19 @@
                                 <ul id="navigation">  
                                     <li><a href="index.php">Home</a></li>
                                    
-                                    <li><a href="add_category.php">Category</a>
+                                    <li><a href="add_category.php">Add</a>
                                         <ul class="submenu">
                                             <li><a href="add_category.php">Add Category</a></li>
-                                            <li><a href="manage_category.php"> Manage Category</a></li>
+                                            <li><a href="add_product.php"> Add Product</a></li>
                                         </ul>
                                     </li>
 
-                                    <li><a href="add_product.php">Product</a>
+                                    <li><a href="#">Manage</a>
                                         <ul class="submenu">
-                                            <li><a href="add_product.php">Add Product</a></li>
-                                            <li><a href="manage_product.php"> Manage Product</a></li>
+                                            <li><a href="manage_category.php">Manage Category</a></li>
+                                            <li><a href="manage_clothes.php"> Manage Clothes</a></li>
+											<li><a href="manage_electronics.php"> Manage Electronics</a></li>
+											<li><a href="manage_furniture.php"> Manage Furniture</a></li>
                                         </ul>
                                     </li>
                                    

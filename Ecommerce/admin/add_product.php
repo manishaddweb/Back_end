@@ -30,7 +30,7 @@
         include("header.php");
     ?>
     
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
     <div class="container mt-5 pt-2 pb-3" style="width:40%;border: black solid 2px;">
 	<h2 class="p-2 mb-3" style="border-bottom:5px solid blue; width: 25%;">Product</h2>
     
@@ -40,7 +40,7 @@
             <option class="" disabled selected>SELECT</option>
             <?php
 									include("conn.php");
-									$q="select * from category";
+									$q="select distinct cat_name from category";
 									$p=mysqli_query($con,$q);
 									while($res=mysqli_fetch_assoc($p))
 									{
@@ -82,10 +82,22 @@
         <input type="text" name="pro_color" class="form-control" id="exampleInputtext" required>
       </div>
 
+      
+
       <div class="mb-3">
         <label class="form-label">Product Size</label>
-        <input type="text" name="pro_size" class="form-control" id="exampleInputtext" required>
-      </div>
+        <select class="form-select" name="pro_size">
+            <option class="" disabled selected>SELECT SIZE</option>
+            <option value="Small">Small</option>
+            <option value="Medium">Medium</option>
+            <option value="Large">Large</option>
+            <option value="Two Thirds">Two Thirds</option>
+            <option value="Third Thirds">Thirds Thirds</option>
+            <option value="XL">XL</option>
+            <option value="XXL">XXL</option>
+            <option value="XXXL">XXXL</option>
+              </select>
+              </div>          
 
       <div class="mb-3">
         <label class="form-label">Product Weight</label>
@@ -120,8 +132,15 @@
           $p_name=$_POST['pro_name'];
           $p_code=$_POST['pro_code'];
           $p_price=$_POST['pro_price'];
-          $p_image1=$_POST['pro_image1'];
-          $p_image2=$_POST['pro_image2'];
+
+          $img_name1=$_FILES["pro_image1"]["name"];
+          $img_tmpname1=$_FILES["pro_image1"]["tmp_name"];
+          $image1 = "../upload/" . $img_name1;
+
+          $img_name2=$_FILES["pro_image2"]["name"];
+          $img_tmpname2=$_FILES["pro_image2"]["tmp_name"];
+          $image2 = "../upload/" . $img_name2;
+          
           $p_color=$_POST['pro_color'];
           $p_size=$_POST['pro_size'];
           $p_weight=$_POST['pro_weight'];
@@ -129,9 +148,11 @@
           $p_material=$_POST['pro_material'];
           $p_ship_material=$_POST['pro_ship_material'];
           
-          
-         $sql="insert into product(cat_name,p_name,p_code,p_price,p_img1,p_img2,p_color,p_size,p_weight,p_desc,p_material,p_ship_desc) values('$cat_name','$p_name','$p_code','$p_price','$p_image1','$p_image2','$p_color','$p_size','$p_weight','$p_desc','$p_material','$p_ship_material')";
-        
+         $sql="insert into $cat_name(cat_name,p_name,p_code,p_price,p_img1,p_img2,p_color,p_size,p_weight,p_desc,p_material,p_ship_desc) values('$cat_name','$p_name','$p_code','$p_price','$image1','$image2','$p_color','$p_size','$p_weight','$p_desc','$p_material','$p_ship_material')";
+       // echo $sql;
+         move_uploaded_file($img_tmpname1, $image1); 
+         move_uploaded_file($img_tmpname2, $image2); 
+         
 //        echo $sql;
          
          $query=mysqli_query($con,$sql);

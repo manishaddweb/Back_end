@@ -45,20 +45,17 @@ while($res=mysqli_fetch_array($query))
 {
     echo "<tr>
 								<td>$res[0]</td>
-                                <td>$res[1]</td>
+                 <td>$res[1]</td>
 								<td class='center'><img src='$res[2]' style='border : black dotted 2px;' height=100 width=100></td>
-								
+								";?>
 								
 								<td class='center'>
 									
-									<a class='btn btn-info' style='font-size:12px;background-color:green;padding:10px 15px;' href='edit_category.php?id=$res[0]'>
-										
-										Edit                                            
-									</a>
-									<a class='btn btn-danger' style='font-size:12px;padding:10px 15px;' href='delete_category.php?id=$res[0]'>
-										Delete
-									</a>
-								</td>
+									<a href="edit_category.php?cat_id=<?php echo $res['cat_id'];?>" style="font-size:12px;background-color:green;padding:10px 15px;"> Edit</a>
+
+                  <a href="delete_category.php?cat_id=<?php echo $res['cat_id'];?>" style="font-size:12px;background-color:red;padding:10px 15px;"> Delete</a>
+<?php
+		  echo "</td>
 							</tr>";
 }
 echo "</table>";
